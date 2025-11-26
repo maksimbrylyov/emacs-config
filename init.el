@@ -52,6 +52,7 @@
 ;; -----
 (use-package no-littering
   :ensure t
+  :demand t
   :config
   (require 'no-littering))
 
@@ -319,7 +320,17 @@
 
 (use-package vterm-toggle
   :ensure t
+  :bind (("<f2>" . vterm-toggle)
+	 ("C-<f2>" . vterm-toggle-cd)
+	 ("S-n" . vterm-toggle-forward)
+	 ("S-p" . vterm-toggle-backward)
+	 :map vterm-mode-map
+	 ("C-<return>" . vterm-toggle-insert-cd)
+	 ("<f2>" . vterm-toggle))
   :after (vterm))
+
+;; Custom.
+;; -------
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
